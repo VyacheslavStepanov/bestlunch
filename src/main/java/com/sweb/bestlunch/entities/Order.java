@@ -17,4 +17,9 @@ public class Order {
     private OrderType type;
     private Collection<Item> items = new LinkedHashSet<>();
 
+    public Order(Customer customer, Collection<Item> items){
+        this.customer = customer;
+        this.type = OrderType.New;
+        this.items = items;
+    }
 }

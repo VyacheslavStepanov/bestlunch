@@ -1,13 +1,12 @@
 package com.sweb.bestlunch.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class Item {
-    @Id
-    @GeneratedValue
     private Long id;
-    private Order order;
     private Product product;
     private Double price;
     private int quantity;
@@ -15,10 +14,6 @@ public class Item {
 
     public Long getId() {
         return id;
-    }
-
-    public Order getOrder() {
-        return order;
     }
 
     public Product getProduct() {
