@@ -1,15 +1,16 @@
 package com.sweb.bestlunch.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Item {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="PRODUCT_ID", unique= true, nullable=true, insertable=true, updatable=true)
     private Product product;
+//    @ManyToOne (cascade=CascadeType.ALL)
+//    private Order order;
     private Double price;
     private int quantity;
 
@@ -41,4 +42,8 @@ public class Item {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+//    public Order getOrder() {
+//        return order;
+//    }
 }
