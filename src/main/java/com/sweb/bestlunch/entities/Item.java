@@ -6,12 +6,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Item {
+    @Id
+    @GeneratedValue
     private Long id;
     private Product product;
     private Double price;
     private int quantity;
 
-
+    public Item(){}
     public Long getId() {
         return id;
     }
