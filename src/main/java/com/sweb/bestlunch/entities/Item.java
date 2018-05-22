@@ -4,17 +4,19 @@ import javax.persistence.*;
 
 @Entity
 public class Item {
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="PRODUCT_ID", unique= true, nullable=true, insertable=true, updatable=true)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PRODUCT_ID", unique = true)
     private Product product;
-//    @ManyToOne (cascade=CascadeType.ALL)
-//    private Order order;
+    @ManyToOne
+    private Order order;
     private Double price;
     private int quantity;
 
-    public Item(){}
+    public Item() {}
+
     public Long getId() {
         return id;
     }
@@ -26,6 +28,10 @@ public class Item {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+    public Order getOrder() { return order;}
+
+    public void setOrder(Order order) { this.order = order;}
 
     public Double getPrice() {
         return price;
@@ -43,7 +49,4 @@ public class Item {
         this.quantity = quantity;
     }
 
-//    public Order getOrder() {
-//        return order;
-//    }
 }
