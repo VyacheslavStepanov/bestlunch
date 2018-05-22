@@ -7,23 +7,19 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 
 @Entity
-@Table(name="orders")
+@Table(name = "orders")
 public class Order {
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="CUSTOMER_ID", unique= true)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CUSTOMER_ID", unique = true)
     private Customer customer;
     private OrderType type;
-    @OneToMany(mappedBy="order", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
     private Collection<Item> items = new LinkedHashSet<>();
 
-    public Order(Customer customer, Collection<Item> items){
-        this.customer = customer;
-        this.type = OrderType.New;
-        this.items = items;
-    }
-    public Order(){
+    public Order() {
     }
 
     public Long getId() {
@@ -32,6 +28,26 @@ public class Order {
 
     public OrderType getType() {
         return type;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Collection<Item> getItems() {
+        return items;
+    }
+
+    public void addItem(Item item) {
+        this.items.add(item);
+    }
+
+    public void deleteItem(Item item) {
+        this.items.remove(item);
     }
 
     public void setType(OrderType type) {
