@@ -1,6 +1,6 @@
 package com.sweb.bestlunch.Enums;
 
-public enum OrderType {
+public enum OrderStatus {
     New,
     Processed,
     Closed

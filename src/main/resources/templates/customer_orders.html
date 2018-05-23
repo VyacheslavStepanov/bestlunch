@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <h1>Customer orders</h1>
+    <h2 th:text="${orders.size()}">Order count: </h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Customer</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="order : ${orders}">
+                <td th:text="${order.customer.getName()}">Customer</td>
+                <td th:text="${order.getStatus()}">1</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

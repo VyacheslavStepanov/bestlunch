@@ -1,6 +1,6 @@
 package com.sweb.bestlunch.entities;
 
-import com.sweb.bestlunch.Enums.OrderType;
+import com.sweb.bestlunch.Enums.OrderStatus;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -15,7 +15,7 @@ public class Order {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CUSTOMER_ID", unique = true)
     private Customer customer;
-    private OrderType type;
+    private OrderStatus status;
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
     private Collection<Item> items = new LinkedHashSet<>();
 
@@ -26,8 +26,8 @@ public class Order {
         return id;
     }
 
-    public OrderType getType() {
-        return type;
+    public OrderStatus getStatus() {
+        return status;
     }
 
     public Customer getCustomer() {
@@ -50,7 +50,7 @@ public class Order {
         this.items.remove(item);
     }
 
-    public void setType(OrderType type) {
-        this.type = type;
+    public void setType(OrderStatus status) {
+        this.status = status;
     }
 }
