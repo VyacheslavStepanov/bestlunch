@@ -20,7 +20,7 @@ public class HelloController {
     }
     @RequestMapping(method=RequestMethod.GET)
     public String hello(){
-        Customer customer = customerService.getCustomerById(1);
+        Customer customer = customerService.getById(1L);
         return "hello";
     }
 }

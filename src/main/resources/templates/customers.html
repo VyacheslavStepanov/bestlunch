@@ -6,21 +6,24 @@
 </head>
 <body>
     <h1>Customers</h1>
-
-    <table>
-        <tr>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Phone</td>
-            <td></td>
-        </tr>
-        <tr th:each="customer : ${customers}">
-            <td th:text="${customer.getName()}">name</td>
-            <td th:text="${customer.getEmail()}">email</td>
-            <td th:text="${customer.getPhoneNumber()}">phone</td>
-            <td>Edit</td>
-        </tr>
-    </table>
+    <a href="/customer/add">Add Customer</a>
+    <br/><br/>
+    <div>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td></td>
+            </tr>
+            <tr th:each="customer : ${customers}">
+                <td th:text="${customer.getName()}">name</td>
+                <td th:text="${customer.getEmail()}">email</td>
+                <td th:text="${customer.getPhoneNumber()}">phone</td>
+                <td>Edit</td>
+            </tr>
+        </table>
+    </div>
 
 </body>
 </html>
