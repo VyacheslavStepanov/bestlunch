@@ -24,7 +24,7 @@ public class OrderController {
     }
     @GetMapping("/")
     public ModelAndView getOrders() {
-        Customer customer = new Customer("A more");
+        Customer customer = new Customer("A more","mail@amore.com","88008008080");
         Map<String, List<Order>> model = new HashMap<>();
 
         List<Order> orders = service.getOrdersByCustomer(customer);

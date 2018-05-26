@@ -4,6 +4,7 @@ import javax.naming.Name;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Customer {
@@ -11,9 +12,15 @@ public class Customer {
     @GeneratedValue
     private Long id;
     private String name;
+    private String email;
+    private String phoneNumber;
+    private Date created;
+    private Date modified;
 
-    public Customer(String name){
+    public Customer(String name, String email, String phoneNumber){
         this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
     public Long getId() {
         return id;
@@ -25,5 +32,37 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public Date getModified() {
+        return modified;
+    }
+
+    public void setModified(Date modified) {
+        this.modified = modified;
     }
 }
