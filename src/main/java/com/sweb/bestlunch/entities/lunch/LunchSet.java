@@ -1,5 +1,6 @@
-package com.sweb.bestlunch.entities;
+package com.sweb.bestlunch.entities.lunch;
 
+import com.sweb.bestlunch.entities.customer.Customer;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;

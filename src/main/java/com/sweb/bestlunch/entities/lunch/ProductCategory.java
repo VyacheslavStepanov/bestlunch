@@ -1,4 +1,4 @@
-package com.sweb.bestlunch.entities;
+package com.sweb.bestlunch.entities.lunch;
 
 import org.springframework.data.annotation.Id;
 

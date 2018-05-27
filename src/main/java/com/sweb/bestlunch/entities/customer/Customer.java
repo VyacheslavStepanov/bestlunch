@@ -1,6 +1,7 @@
-package com.sweb.bestlunch.entities;
+package com.sweb.bestlunch.entities.customer;
 
-import javax.naming.Name;
+import com.sweb.bestlunch.entities.customer.Address;
+
 import javax.persistence.*;
 import java.util.Date;
 

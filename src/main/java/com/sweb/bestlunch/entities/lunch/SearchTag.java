@@ -1,5 +1,6 @@
-package com.sweb.bestlunch.entities;
+package com.sweb.bestlunch.entities.lunch;
 
+import com.sweb.bestlunch.entities.lunch.LunchSet;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.Entity;
@@ -8,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 public class SearchTag {

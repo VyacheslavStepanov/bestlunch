@@ -1,4 +1,6 @@
-package com.sweb.bestlunch.entities;
+package com.sweb.bestlunch.entities.lunch;
+
+import com.sweb.bestlunch.entities.customer.Customer;
 
 import javax.persistence.*;
 import java.util.ArrayList;
