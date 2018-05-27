@@ -16,7 +16,7 @@ public class SearchTag {
     private Long id;
     @NaturalId
     private String name;
-    @ManyToMany(mappedBy = "searchtags")
+    @ManyToMany(mappedBy = "tags")
     private List<LunchSet> lunchSets= new ArrayList<>();
 
     public Long getId() {

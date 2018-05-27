@@ -13,8 +13,10 @@ public class Product {
     private Long id;
     private String name;
     private String description;
+    @ManyToOne
     private Customer customer;
     private Double costPrice;
+    @ManyToOne
     private ProductCategory productCategory;
     @ManyToMany(mappedBy = "products")
     private List<LunchSet> lunchSets= new ArrayList<>();

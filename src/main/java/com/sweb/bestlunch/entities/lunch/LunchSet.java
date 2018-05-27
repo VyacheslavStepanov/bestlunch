@@ -1,7 +1,6 @@
 package com.sweb.bestlunch.entities.lunch;
 
 import com.sweb.bestlunch.entities.customer.Customer;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,13 +10,14 @@ import java.util.List;
 public class LunchSet {
     @Id @GeneratedValue
     private Long id;
+    @ManyToOne
     private Customer customer;
     @ManyToMany
     @JoinTable(name="lunchset_searchtag",
         joinColumns=@JoinColumn(name="lunchset_id"),
         inverseJoinColumns =@JoinColumn(name="searchtag_id")
     )
-    private List<SearchTag> searchTags = new ArrayList<>();
+    private List<SearchTag> tags = new ArrayList<>();
     @ManyToMany
     @JoinTable(name="lunchset_product",
         joinColumns=@JoinColumn(name="lunchset_id"),
@@ -48,14 +48,14 @@ public class LunchSet {
     }
 
     public List<SearchTag> getSearchTags() {
-        return searchTags;
+        return tags;
     }
 
     public void addSearchTags(SearchTag searchTag) {
-        this.searchTags.add(searchTag);
+        this.tags.add(searchTag);
     }
     public void removeSearchTag(SearchTag searchTag) {
-        this.searchTags.remove(searchTag);
+        this.tags.remove(searchTag);
     }
 
     public List<Product> getProducts() {
