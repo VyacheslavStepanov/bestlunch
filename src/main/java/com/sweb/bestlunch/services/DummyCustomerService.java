@@ -1,10 +1,9 @@
 package com.sweb.bestlunch.services;
 
-import com.sweb.bestlunch.entities.Customer;
+import com.sweb.bestlunch.entities.customer.Customer;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service

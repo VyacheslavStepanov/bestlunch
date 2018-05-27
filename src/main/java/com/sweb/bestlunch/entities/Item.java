@@ -1,5 +1,7 @@
 package com.sweb.bestlunch.entities;
 
+import com.sweb.bestlunch.entities.lunch.Product;
+
 import javax.persistence.*;
 
 @Entity

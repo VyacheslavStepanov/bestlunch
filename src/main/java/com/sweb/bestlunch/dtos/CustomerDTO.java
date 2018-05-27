@@ -1,9 +1,7 @@
 package com.sweb.bestlunch.dtos;
 
-import com.sweb.bestlunch.entities.Customer;
+import com.sweb.bestlunch.entities.customer.Customer;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.util.Date;
 
 public class CustomerDTO {

@@ -1,6 +1,6 @@
 package com.sweb.bestlunch;
 
-import com.sweb.bestlunch.entities.Customer;
+import com.sweb.bestlunch.entities.customer.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

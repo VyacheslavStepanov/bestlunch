@@ -1,7 +1,7 @@
 package com.sweb.bestlunch.controllers.admin;
 
 import com.sweb.bestlunch.dtos.CustomerDTO;
-import com.sweb.bestlunch.entities.Customer;
+import com.sweb.bestlunch.entities.customer.Customer;
 import com.sweb.bestlunch.services.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
