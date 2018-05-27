@@ -1,9 +1,7 @@
 package com.sweb.bestlunch.entities;
 
 import javax.naming.Name;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,6 +14,9 @@ public class Customer {
     private String phoneNumber;
     private Date created;
     private Date modified;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="address_id")
+    private Address address;
 
     public Customer(String name, String email, String phoneNumber){
         this.name = name;
@@ -64,5 +65,13 @@ public class Customer {
 
     public void setModified(Date modified) {
         this.modified = modified;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

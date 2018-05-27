@@ -1,21 +1,26 @@
 package com.sweb.bestlunch.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Product {
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
+    private Customer customer;
+    private Double costPrice;
+    private ProductCategory productCategory;
+    @ManyToMany(mappedBy = "products")
+    private List<LunchSet> lunchSets= new ArrayList<>();
 
-
-    public Product(String name, String description){
+    public Product(String name, String description, Customer customer, ProductCategory productCategory) {
         this.name = name;
         this.description = description;
+        this.productCategory = productCategory;
     }
 
     public Long getId() {
@@ -36,5 +41,21 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Double getCostPrice() {
+        return costPrice;
+    }
+
+    public void setCostPrice(Double costPrice) {
+        this.costPrice = costPrice;
+    }
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
     }
 }
