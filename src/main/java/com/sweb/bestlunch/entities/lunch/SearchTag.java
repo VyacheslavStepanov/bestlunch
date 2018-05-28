@@ -13,7 +13,7 @@ public class SearchTag {
     private Long id;
     @NaturalId
     private String name;
-    @ManyToMany(mappedBy = "tags")
+    @ManyToMany(mappedBy = "tags",fetch = FetchType.LAZY)
     private List<LunchSet> lunchSets= new ArrayList<>();
 
     public Long getId() {

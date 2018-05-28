@@ -12,13 +12,13 @@ public class LunchSet {
     private Long id;
     @ManyToOne
     private Customer customer;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="lunchset_searchtag",
         joinColumns=@JoinColumn(name="lunchset_id"),
         inverseJoinColumns =@JoinColumn(name="searchtag_id")
     )
     private List<SearchTag> tags = new ArrayList<>();
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="lunchset_product",
         joinColumns=@JoinColumn(name="lunchset_id"),
         inverseJoinColumns=@JoinColumn(name="product_id")
