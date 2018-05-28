@@ -8,8 +8,7 @@ import java.util.List;
 
 @Entity
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String description;
@@ -21,6 +20,7 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private List<LunchSet> lunchSets= new ArrayList<>();
 
+    public Product(){}
     public Product(String name, String description, Customer customer, ProductCategory productCategory) {
         this.name = name;
         this.description = description;

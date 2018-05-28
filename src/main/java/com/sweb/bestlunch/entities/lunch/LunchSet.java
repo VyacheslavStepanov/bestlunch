@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 public class LunchSet {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
     private Customer customer;

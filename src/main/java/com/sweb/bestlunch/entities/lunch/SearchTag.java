@@ -3,16 +3,13 @@ package com.sweb.bestlunch.entities.lunch;
 import com.sweb.bestlunch.entities.lunch.LunchSet;
 import org.hibernate.annotations.NaturalId;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class SearchTag {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NaturalId
     private String name;
