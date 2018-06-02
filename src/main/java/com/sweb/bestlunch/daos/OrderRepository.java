@@ -1,8 +1,7 @@
 package com.sweb.bestlunch.daos;
 
 import com.sweb.bestlunch.entities.Restaurant;
-import com.sweb.bestlunch.entities.User;
-import com.sweb.bestlunch.entities.Order;
+import com.sweb.bestlunch.entities.order.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

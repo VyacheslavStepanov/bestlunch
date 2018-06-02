@@ -1,8 +1,7 @@
 package com.sweb.bestlunch.controllers;
 
 import com.sweb.bestlunch.entities.Restaurant;
-import com.sweb.bestlunch.entities.User;
-import com.sweb.bestlunch.entities.Order;
+import com.sweb.bestlunch.entities.order.Order;
 import com.sweb.bestlunch.services.IOrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,7 @@
-package com.sweb.bestlunch.entities;
+package com.sweb.bestlunch.entities.order;
 
-import com.sweb.bestlunch.entities.lunch.Product;
+import com.sweb.bestlunch.entities.Product.Product;
+import com.sweb.bestlunch.entities.order.Order;
 
 import javax.persistence.*;
 

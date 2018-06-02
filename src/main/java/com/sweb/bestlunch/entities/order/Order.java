@@ -1,6 +1,7 @@
-package com.sweb.bestlunch.entities;
+package com.sweb.bestlunch.entities.order;
 
 import com.sweb.bestlunch.Enums.OrderStatus;
+import com.sweb.bestlunch.entities.Restaurant;
 
 import javax.persistence.*;
 import java.util.Collection;

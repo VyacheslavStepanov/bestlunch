@@ -1,6 +1,8 @@
-package com.sweb.bestlunch.entities.lunch;
+package com.sweb.bestlunch.entities.Product;
 
+import com.sweb.bestlunch.entities.Product.ProductCategory;
 import com.sweb.bestlunch.entities.Restaurant;
+import com.sweb.bestlunch.entities.lunch.LunchSet;
 
 import javax.persistence.*;
 import java.util.ArrayList;

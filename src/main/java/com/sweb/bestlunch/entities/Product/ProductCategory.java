@@ -1,4 +1,4 @@
-package com.sweb.bestlunch.entities.lunch;
+package com.sweb.bestlunch.entities.Product;
 
 import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
