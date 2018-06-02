@@ -1,6 +1,7 @@
 package com.sweb.bestlunch.entities.lunch;
 
-import com.sweb.bestlunch.entities.customer.Customer;
+import com.sweb.bestlunch.entities.Restaurant;
+import com.sweb.bestlunch.entities.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class Product {
     private String name;
     private String description;
     @ManyToOne
-    private Customer customer;
+    private Restaurant restaurant;
     private Double costPrice;
     @ManyToOne
     private ProductCategory productCategory;
@@ -21,8 +22,9 @@ public class Product {
     private List<LunchSet> lunchSets= new ArrayList<>();
 
     public Product(){}
-    public Product(String name, String description, Customer customer, ProductCategory productCategory) {
+    public Product(String name, String description, Restaurant restaurant, ProductCategory productCategory) {
         this.name = name;
+        this.restaurant = restaurant;
         this.description = description;
         this.productCategory = productCategory;
     }

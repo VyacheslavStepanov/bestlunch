@@ -1,6 +1,7 @@
 package com.sweb.bestlunch.entities.lunch;
 
-import com.sweb.bestlunch.entities.customer.Customer;
+import com.sweb.bestlunch.entities.Restaurant;
+import com.sweb.bestlunch.entities.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class LunchSet {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
-    private Customer customer;
+    private Restaurant restaurant;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="lunchset_searchtag",
         joinColumns=@JoinColumn(name="lunchset_id"),
@@ -26,8 +27,8 @@ public class LunchSet {
     private List<Product> products = new ArrayList<>();
     private String description;
 
-    public LunchSet(Customer customer, String description) {
-        this.customer = customer;
+    public LunchSet(Restaurant restaurant, String description) {
+        this.restaurant = restaurant;
         this.description = description;
     }
 
@@ -39,12 +40,12 @@ public class LunchSet {
         this.id = id;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     public List<SearchTag> getSearchTags() {
