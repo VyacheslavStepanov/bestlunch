@@ -15,10 +15,10 @@ public class Restaurant {
     private String phoneNumber;
     private Date created;
     private Date modified;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name="address_id")
     private Address address;
-    @OneToMany(mappedBy = "user",fetch=FetchType.LAZY)
+    @OneToMany(fetch=FetchType.LAZY)
     private List<User> staff = new ArrayList<>();
 
     public Restaurant(){}
