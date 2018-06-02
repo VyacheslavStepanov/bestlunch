@@ -52,7 +52,7 @@ public class ProductController {
 
         if (product.getName() != null && product.getName().length()>0
                 && product.getDescription()!= null && product.getDescription().length()>0
-                && product.getCategory() != null) {
+                && product.getProductCategory() != null) {
 
             productRepository.save(product);
         }

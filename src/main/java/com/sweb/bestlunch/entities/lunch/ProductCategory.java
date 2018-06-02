@@ -15,6 +15,7 @@ public class ProductCategory {
     @OneToMany(cascade=CascadeType.ALL)
     private Set<Product> products = new HashSet<>();
 
+    public ProductCategory() {}
     public ProductCategory(String name) {
         this.name = name;
     }

@@ -57,7 +57,7 @@ public class Product {
         this.costPrice = costPrice;
     }
 
-    public ProductCategory getCategory() {
+    public ProductCategory getProductCategory() {
         return productCategory;
     }
 
