@@ -5,6 +5,9 @@
     <title>Product list</title>
 </head>
 <body>
+    <div th:replace="fragments/header :: header">
+        <h1>Static Header</h1>
+    </div>
     <h1>Product list</h1>
     <br/>
     <a href="/products/add">Add product</a>

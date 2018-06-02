@@ -13,11 +13,11 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
-public class HelloController {
+public class HomeController {
 
     @RequestMapping(method=RequestMethod.GET)
-    public String hello(){
+    public String showHomePage(){
 
-        return "hello";
+        return "home";
     }
 }

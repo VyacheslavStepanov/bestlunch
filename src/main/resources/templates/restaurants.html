@@ -5,6 +5,9 @@
     <title>title</title>
 </head>
 <body>
+    <div th:replace="fragments/header :: header">
+        <h1>Static header</h1>
+    </div>
     <h1>Restaurants</h1>
     <a href="/restaurants/add">Add Restaurant</a>
     <br/><br/>
