@@ -1,7 +1,6 @@
 package com.sweb.bestlunch.entities.lunch;
 
 import com.sweb.bestlunch.entities.Restaurant;
-import com.sweb.bestlunch.entities.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,20 +14,19 @@ public class Product {
     private String name;
     private String description;
     @ManyToOne
-    @Column(name="restaurant_id")
     private Restaurant restaurant;
     private Double costPrice;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private ProductCategory productCategory;
     @ManyToMany(mappedBy = "products")
     private List<LunchSet> lunchSets= new ArrayList<>();
 
     public Product(){}
-    public Product(String name, String description, Restaurant restaurant, ProductCategory productCategory) {
+    public Product(String name, String description, Restaurant restaurant, ProductCategory category) {
         this.name = name;
         this.restaurant = restaurant;
         this.description = description;
-        this.productCategory = productCategory;
+        this.productCategory = category;
     }
 
     public Long getId() {
@@ -59,11 +57,11 @@ public class Product {
         this.costPrice = costPrice;
     }
 
-    public ProductCategory getProductCategory() {
+    public ProductCategory getCategory() {
         return productCategory;
     }
 
-    public void setProductCategory(ProductCategory productCategory) {
+    public void setCategory(ProductCategory productCategory) {
         this.productCategory = productCategory;
     }
 }

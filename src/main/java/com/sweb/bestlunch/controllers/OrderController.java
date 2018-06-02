@@ -24,7 +24,7 @@ public class OrderController {
     }
     @GetMapping("/")
     public ModelAndView getOrders() {
-        Restaurant restaurant = new Restaurant("A more","mail@amore.com","88008008080");
+        Restaurant restaurant = new Restaurant(1L,"A more","mail@amore.com","88008008080");
         Map<String, List<Order>> model = new HashMap<>();
 
         List<Order> orders = service.getOrdersByRestaurant(restaurant);

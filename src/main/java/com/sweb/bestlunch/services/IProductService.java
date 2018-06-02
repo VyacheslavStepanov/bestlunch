@@ -7,5 +7,4 @@ import com.sweb.bestlunch.entities.lunch.Product;
 import java.util.List;
 
 public interface IProductService {
-    List<Product> getByRestaurant(Restaurant restaurant);
 }
