@@ -6,8 +6,7 @@ import javax.persistence.*;
 
 @Entity
 public class Item {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID", unique = true)

@@ -9,8 +9,7 @@ import java.util.LinkedHashSet;
 @Entity
 @Table(name = "orders")
 public class Order {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "RESTAURANT_ID", unique = true)

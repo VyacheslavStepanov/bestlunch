@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 public class LunchSet {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     private Restaurant restaurant;

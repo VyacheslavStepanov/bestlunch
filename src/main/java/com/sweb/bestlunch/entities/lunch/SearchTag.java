@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 public class SearchTag {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     @NaturalId
     private String name;
