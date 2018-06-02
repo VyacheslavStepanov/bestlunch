@@ -4,6 +4,7 @@ import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
 
 @Entity
+@Table(name="product_categories")
 public class ProductCategory {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;

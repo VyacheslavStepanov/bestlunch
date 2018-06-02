@@ -5,21 +5,23 @@
     <title>title</title>
 </head>
 <body>
-    <h1>Customers</h1>
-    <a href="/restaurants/add">Add Customer</a>
+    <h1>Restaurants</h1>
+    <a href="/restaurants/add">Add Restaurant</a>
     <br/><br/>
     <div>
         <table>
             <tr>
+                <td>Id</td>
                 <td>Name</td>
                 <td>Email</td>
                 <td>Phone</td>
                 <td></td>
             </tr>
-            <tr th:each="customer : ${restaurants}">
-                <td th:text="${customer.getName()}">name</td>
-                <td th:text="${customer.getEmail()}">email</td>
-                <td th:text="${customer.getPhoneNumber()}">phone</td>
+            <tr th:each="restaurant : ${restaurants}">
+                <td th:text="${restaurant.getId()}">id</td>
+                <td th:text="${restaurant.getName()}">name</td>
+                <td th:text="${restaurant.getEmail()}">email</td>
+                <td th:text="${restaurant.getPhoneNumber()}">phone</td>
                 <td>Edit</td>
             </tr>
         </table>

@@ -8,12 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name="products")
 public class Product {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
     @ManyToOne
+    @Column(name="restaurant_id")
     private Restaurant restaurant;
     private Double costPrice;
     @ManyToOne

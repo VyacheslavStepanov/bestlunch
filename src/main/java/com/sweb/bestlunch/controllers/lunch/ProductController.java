@@ -34,7 +34,7 @@ public class ProductController {
     @GetMapping("/")
     public ModelAndView showAllProducts() {
 
-        List<Product> products = service.getByRestaurant(new Restaurant("Kino", "sdfd", "2345545324"));
+        List<Product> products = service.getByRestaurant(new Restaurant(1L,"Kino", "sdfd", "2345545324"));
         Map<String, List<Product>> model = new HashMap<>();
         model.put("products", products);
         return new ModelAndView("products", model);
