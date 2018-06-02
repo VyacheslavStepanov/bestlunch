@@ -1,7 +1,6 @@
 package com.sweb.bestlunch.entities;
 
 import com.sweb.bestlunch.Enums.OrderStatus;
-import com.sweb.bestlunch.entities.customer.Customer;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -14,8 +13,8 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CUSTOMER_ID", unique = true)
-    private Customer customer;
+    @JoinColumn(name = "RESTAURANT_ID", unique = true)
+    private Restaurant restaurant;
     private OrderStatus status;
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
     private Collection<Item> items = new LinkedHashSet<>();
@@ -31,12 +30,12 @@ public class Order {
         return status;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     public Collection<Item> getItems() {

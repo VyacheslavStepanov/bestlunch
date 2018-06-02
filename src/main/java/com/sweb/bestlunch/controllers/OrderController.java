@@ -1,6 +1,7 @@
 package com.sweb.bestlunch.controllers;
 
-import com.sweb.bestlunch.entities.customer.Customer;
+import com.sweb.bestlunch.entities.Restaurant;
+import com.sweb.bestlunch.entities.User;
 import com.sweb.bestlunch.entities.Order;
 import com.sweb.bestlunch.services.IOrderService;
 import org.springframework.stereotype.Controller;
@@ -23,11 +24,11 @@ public class OrderController {
     }
     @GetMapping("/")
     public ModelAndView getOrders() {
-        Customer customer = new Customer("A more","mail@amore.com","88008008080");
+        Restaurant restaurant = new Restaurant("A more","mail@amore.com","88008008080");
         Map<String, List<Order>> model = new HashMap<>();
 
-        List<Order> orders = service.getOrdersByCustomer(customer);
+        List<Order> orders = service.getOrdersByRestaurant(restaurant);
         model.put("orders",orders);
-        return new ModelAndView("customer_orders", model);
+        return new ModelAndView("restaurant_orders", model);
     }
 }

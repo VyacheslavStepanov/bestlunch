@@ -1,7 +1,8 @@
 package com.sweb.bestlunch.controllers.lunch;
 
-import com.sweb.bestlunch.dtos.CustomerDTO;
-import com.sweb.bestlunch.entities.customer.Customer;
+import com.sweb.bestlunch.daos.ProductRepository;
+import com.sweb.bestlunch.entities.Restaurant;
+import com.sweb.bestlunch.entities.User;
 import com.sweb.bestlunch.entities.lunch.Product;
 import com.sweb.bestlunch.services.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +22,19 @@ import java.util.Map;
 @RequestMapping("/products")
 public class ProductController {
     private IProductService service;
+    private ProductRepository repository;
 
     @Autowired
-    public ProductController(IProductService service) {
+    public ProductController(IProductService service, ProductRepository repository) {
+
         this.service = service;
+        this.repository = repository;
     }
 
     @GetMapping("/")
     public ModelAndView showAllProducts() {
 
-        List<Product> products = service.getByCustomer(new Customer("Kino", "sdfd", "2345545324"));
+        List<Product> products = service.getByRestaurant(new Restaurant("Kino", "sdfd", "2345545324"));
         Map<String, List<Product>> model = new HashMap<>();
         model.put("products", products);
         return new ModelAndView("products", model);
@@ -43,12 +47,7 @@ public class ProductController {
                 && product.getDescription()!= null && product.getDescription().length()>0
                 && product.getProductCategory() != null) {
 
-            if (service.save(product)) {
-                return "redirect:/products";
-            } else {
-                model.addAttribute("errorMessage","can't save product");
-                return "productForm";
-            }
+            repository.save(product);
         }
         model.addAttribute("errorMessage","fill all inputs");
         return "productForm";

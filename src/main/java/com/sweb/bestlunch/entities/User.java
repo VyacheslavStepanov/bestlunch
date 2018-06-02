@@ -1,12 +1,10 @@
-package com.sweb.bestlunch.entities.customer;
-
-import com.sweb.bestlunch.entities.customer.Address;
+package com.sweb.bestlunch.entities;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Customer {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -19,7 +17,7 @@ public class Customer {
     @JoinColumn(name="address_id")
     private Address address;
 
-    public Customer(String name, String email, String phoneNumber){
+    public User(String name, String email, String phoneNumber){
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;

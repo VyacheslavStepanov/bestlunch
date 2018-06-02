@@ -1,4 +1,4 @@
-package com.sweb.bestlunch.entities.customer;
+package com.sweb.bestlunch.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
