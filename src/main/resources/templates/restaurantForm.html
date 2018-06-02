@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Customer</title>
+    <title>Add Restaurant</title>
 </head>
 <body>
-    <h1>Create a Customer</h1>
+    <h1>Create a Restaurant</h1>
 
-    <form th:action="@{/customer}"
-          th:object="${customerDTO}" method="POST">
+    <form th:action="@{/restaurants}"
+          th:object="${restaurant}" method="POST">
         Name:
         <input type="text" th:field="*{name}" />
         <br/>

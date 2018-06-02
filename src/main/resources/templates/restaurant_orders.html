@@ -3,17 +3,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <body>
-    <h1>Customer orders</h1>
+    <h1>Restaurant orders</h1>
     <table>
         <thead>
             <tr>
-                <td>Customer</td>
+                <td>Restaurant</td>
                 <td>Status</td>
             </tr>
         </thead>
         <tbody>
             <tr th:each="order : ${orders}">
-                <td th:text="${order.customer.getName()}">Customer</td>
+                <td th:text="${order.restaurant.getName()}">Restaurant</td>
                 <td th:text="${order.getStatus()}">1</td>
             </tr>
         </tbody>

@@ -8,7 +8,7 @@
     <h1>Product</h1>
     <br/>
     <form th:action="@{/products}" th:object="${product}" method="POST">
-        <input type="text" th:field="*{name}" th:label="Name"/>
+        <input type="text" th:field="*{name}"/>
         <br/>
         Description:
         <input type="text" th:field="*{description}"/>

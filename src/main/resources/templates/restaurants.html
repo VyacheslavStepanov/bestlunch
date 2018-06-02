@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Customers</h1>
-    <a href="/customer/add">Add Customer</a>
+    <a href="/restaurants/add">Add Customer</a>
     <br/><br/>
     <div>
         <table>
@@ -16,7 +16,7 @@
                 <td>Phone</td>
                 <td></td>
             </tr>
-            <tr th:each="customer : ${customers}">
+            <tr th:each="customer : ${restaurants}">
                 <td th:text="${customer.getName()}">name</td>
                 <td th:text="${customer.getEmail()}">email</td>
                 <td th:text="${customer.getPhoneNumber()}">phone</td>
