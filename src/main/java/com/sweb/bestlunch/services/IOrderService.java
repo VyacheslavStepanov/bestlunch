@@ -6,5 +6,4 @@ import com.sweb.bestlunch.entities.order.Order;
 import java.util.List;
 
 public interface IOrderService {
-    List<Order> getOrdersByRestaurant(Restaurant restaurant);
 }
