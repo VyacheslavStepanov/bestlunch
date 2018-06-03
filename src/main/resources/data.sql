@@ -12,9 +12,9 @@ insert into product_categories  (name) values ('Main course');
 insert into product_categories  (name) values ('Drinks');
 
 insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Steake','Tasty steake',1L,300.0,3L);
-insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Orange juice','Fresh orange juice',1L,300.0,3L);
-insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Potato soupe','description for soup',1L,300.0,3L);
-insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Borsch','description for soup',1L,300.0,3L);
-insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Pancake','description for dessert',1L,300.0,3L);
-insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Ice-cream','Ice-cream with chocolate',1L,300.0,3L);
+insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Orange juice','Fresh orange juice',1L,300.0,4L);
+insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Potato soupe','description for soup',1L,300.0,2L);
+insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Borsch','description for soup',1L,300.0,2L);
+insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Pancake','description for dessert',1L,300.0,1L);
+insert into products  (name, description, restaurant_id, cost_price, product_category_id) values ('Ice-cream','Ice-cream with chocolate',1L,300.0,1L);
 
