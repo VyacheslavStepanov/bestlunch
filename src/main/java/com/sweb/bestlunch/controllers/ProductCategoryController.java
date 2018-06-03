@@ -1,6 +1,6 @@
 package com.sweb.bestlunch.controllers;
 
-import com.sweb.bestlunch.entities.Product.ProductCategory;
+import com.sweb.bestlunch.entities.product.ProductCategory;
 import com.sweb.bestlunch.services.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

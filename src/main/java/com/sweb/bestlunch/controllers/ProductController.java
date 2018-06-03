@@ -3,7 +3,7 @@ package com.sweb.bestlunch.controllers;
 import com.sweb.bestlunch.daos.ProductRepository;
 import com.sweb.bestlunch.daos.RestaurantRepository;
 import com.sweb.bestlunch.entities.Restaurant;
-import com.sweb.bestlunch.entities.Product.Product;
+import com.sweb.bestlunch.entities.product.Product;
 import com.sweb.bestlunch.services.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

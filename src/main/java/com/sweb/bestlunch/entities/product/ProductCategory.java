@@ -1,10 +1,9 @@
-package com.sweb.bestlunch.entities.Product;
+package com.sweb.bestlunch.entities.product;
 
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 @Entity
@@ -15,7 +14,7 @@ public class ProductCategory {
     private Long id;
     @NaturalId
     private String name;
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="productCategory")
+    @OneToMany(fetch=FetchType.LAZY, mappedBy= "productCategory")
     private List<Product> products = new ArrayList<>();
 
     public ProductCategory() {

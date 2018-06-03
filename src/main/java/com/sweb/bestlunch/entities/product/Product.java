@@ -1,6 +1,5 @@
-package com.sweb.bestlunch.entities.Product;
+package com.sweb.bestlunch.entities.product;
 
-import com.sweb.bestlunch.entities.Product.ProductCategory;
 import com.sweb.bestlunch.entities.Restaurant;
 import com.sweb.bestlunch.entities.lunch.LunchSet;
 
@@ -21,8 +20,6 @@ public class Product {
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="product_category_id")
     private ProductCategory productCategory;
-    @ManyToMany(mappedBy = "products")
-    private List<LunchSet> lunchSets= new ArrayList<>();
 
     public Product(){}
     public Product(String name, String description, Restaurant restaurant, ProductCategory category) {
