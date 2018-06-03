@@ -19,7 +19,7 @@ public class Restaurant {
     @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name="address_id")
     private Address address;
-    @OneToMany(fetch=FetchType.LAZY)
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="restaurant")
     private List<User> staff = new ArrayList<>();
 
     public Restaurant(){}

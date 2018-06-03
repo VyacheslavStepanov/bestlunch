@@ -12,9 +12,9 @@ public class User {
     private String phoneNumber;
     private Date created;
     private Date modified;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="address_id")
-    private Address address;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="restaurant_id")
+    private Restaurant restaurant;
 
     public User(String name, String email, String phoneNumber){
         this.name = name;
@@ -63,13 +63,5 @@ public class User {
 
     public void setModified(Date modified) {
         this.modified = modified;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 }

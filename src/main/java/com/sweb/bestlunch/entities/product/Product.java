@@ -17,7 +17,7 @@ public class Product {
     @ManyToOne
     private Restaurant restaurant;
     private Double costPrice;
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="product_category_id")
     private ProductCategory productCategory;
 

@@ -1,6 +1,6 @@
 package com.sweb.bestlunch.entities.lunch;
 
-import com.sweb.bestlunch.entities.Product.Product;
+import com.sweb.bestlunch.entities.product.Product;
 import com.sweb.bestlunch.entities.Restaurant;
 
 import javax.persistence.*;
