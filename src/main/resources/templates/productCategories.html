@@ -6,7 +6,9 @@
 </head>
 <body>
     <div th:replace="/fragments/header :: header"><h2>Static header</h2></div>
-
+    <br/>
+    <a href="/productCategories/add">Add Product Category</a>
+    <br/>
     <h1>Product categories</h1>
     <div>
         <table>
@@ -14,7 +16,7 @@
                 <td>Id</td>
                 <td>Name</td>
             </tr>
-            <tr th:each="category : ${categories}">
+            <tr th:each="category : ${product_categories}">
                 <td th:text="${category.getId()}">Id</td>
                 <td th:text="${category.getName()}">Name</td>
             </tr>

@@ -1,4 +1,4 @@
-package com.sweb.bestlunch.controllers.lunch;
+package com.sweb.bestlunch.controllers;
 
 import com.sweb.bestlunch.daos.ProductRepository;
 import com.sweb.bestlunch.daos.RestaurantRepository;

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Category Form</title>
+</head>
+<body>
+    <h1>Product Category Form</h1>
+    <br/>
+    <br/>
+    <form th:action="@{/productCategories/}" th:object="${product_category}" th:method="POST">
+        Name:
+        <input type="text" th:field="*{name}" />
+        <br/>
+        <input type="submit" value="Create" />
+    </form>
+</body>
+</html>
