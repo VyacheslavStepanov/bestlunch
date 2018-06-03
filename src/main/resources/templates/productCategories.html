@@ -15,10 +15,14 @@
             <tr>
                 <td>Id</td>
                 <td>Name</td>
+                <td>Product count</td>
+                <td></td>
             </tr>
             <tr th:each="category : ${product_categories}">
                 <td th:text="${category.getId()}">Id</td>
                 <td th:text="${category.getName()}">Name</td>
+                <td th:text="${category.getProducts().size()}">Name</td>
+                <td><a th:href="@{'/productCategories/'+${category.getId()}+'/delete'}">Delete</a></td>
             </tr>
         </table>
     </div>

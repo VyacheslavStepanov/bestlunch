@@ -19,6 +19,7 @@ public class Product {
     private Restaurant restaurant;
     private Double costPrice;
     @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="product_category_id")
     private ProductCategory productCategory;
     @ManyToMany(mappedBy = "products")
     private List<LunchSet> lunchSets= new ArrayList<>();

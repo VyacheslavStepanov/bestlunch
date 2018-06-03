@@ -3,8 +3,9 @@ package com.sweb.bestlunch.entities.Product;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "product_categories")
@@ -14,8 +15,8 @@ public class ProductCategory {
     private Long id;
     @NaturalId
     private String name;
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Product> products = new HashSet<>();
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="productCategory")
+    private List<Product> products = new ArrayList<>();
 
     public ProductCategory() {
     }
@@ -36,8 +37,15 @@ public class ProductCategory {
         this.name = name;
     }
 
-    public String getName() {
+    public List<Product> getProducts() {
+        return products;
+    }
 
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public String getName() {
         return name;
     }
 }

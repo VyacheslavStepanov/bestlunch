@@ -5,10 +5,7 @@ import com.sweb.bestlunch.services.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -41,7 +38,7 @@ public class ProductCategoryController {
     }
 
     @PostMapping("/")
-    public String addOrUpdate(Model model, @ModelAttribute("product_category") ProductCategory productCategory) {
+    public String addOrUpdateProductCategory(Model model, @ModelAttribute("product_category") ProductCategory productCategory) {
 
         if (productCategory.getName() != null && productCategory.getName().length() > 0) {
 
@@ -49,6 +46,23 @@ public class ProductCategoryController {
         } else {
             model.addAttribute("errorMessage", "fill all inputs");
             return "productForm";
+        }
+        return "redirect:/productCategories/";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteProductCategory(@PathVariable("id") Long id){
+        ProductCategory productCategory;
+        try {
+            productCategory = service.findById(id);
+        } catch (IllegalArgumentException e){
+            //TODO show popup "Category not found"
+            return "redirect:/productCategories/";
+        }
+        if (productCategory.getProducts().size()==0) {
+            service.delete(id);
+        } else {
+            //TODO show popup "Category has references to Poducts"
         }
         return "redirect:/productCategories/";
     }
