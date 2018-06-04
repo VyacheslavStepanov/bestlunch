@@ -2,7 +2,6 @@ package com.sweb.bestlunch.controllers.admin;
 
 import com.sweb.bestlunch.daos.RestaurantRepository;
 import com.sweb.bestlunch.entities.Restaurant;
-import com.sweb.bestlunch.services.IRestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +15,10 @@ import java.util.*;
 @RequestMapping("/restaurants")
 public class RestaurantController {
     private String errorMessage = "Заполните все поля";
-    private IRestaurantService service;
     private RestaurantRepository repository;
 
     @Autowired
-    public RestaurantController(IRestaurantService service, RestaurantRepository repository){
-        this.service = service;
+    public RestaurantController(RestaurantRepository repository){
         this.repository = repository;
     }
 
