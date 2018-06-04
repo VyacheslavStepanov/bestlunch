@@ -6,28 +6,33 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="restaurants")
+@Table(name = "restaurants")
 public class Restaurant {
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
-    @Column(name="phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
     private Date created;
     private Date modified;
-    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinColumn(name="address_id")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
     private Address address;
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="restaurant")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     private List<User> staff = new ArrayList<>();
 
-    public Restaurant(){}
+    public Restaurant() {
+    }
+
     public Restaurant(Long id, String name, String email, String phoneNumber) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
+
+    public void setId(Long id) { this.id = id; }
 
     public Long getId() {
         return id;
