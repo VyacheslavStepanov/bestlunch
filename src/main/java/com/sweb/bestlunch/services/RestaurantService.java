@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DummyRestaurantService implements IRestaurantService {
+public class RestaurantService implements IRestaurantService {
 //    @Override
 //    public List<Restaurant> getAll() {
 //        List<Restaurant> restaurants = new ArrayList<>();

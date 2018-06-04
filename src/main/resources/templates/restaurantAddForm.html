@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Restaurant</title>
+    <title>Restaurant Create Form</title>
 </head>
 <body>
     <h1>Create a Restaurant</h1>
 
-    <form th:action="@{/restaurants}"
+    <form th:action="@{/restaurants/}"
           th:object="${restaurant}" method="POST">
         Name:
         <input type="text" th:field="*{name}" />
@@ -20,11 +20,6 @@
         <br/>
         <input type="submit" value="Create" />
     </form>
-
-    <br/>
-    <div th:if="${errorMessage}" th:utext="${errorMessage}">
-
-    </div>
 
 </body>
 </html>
