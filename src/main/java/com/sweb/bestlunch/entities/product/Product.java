@@ -1,6 +1,5 @@
-package com.sweb.bestlunch.entities.Product;
+package com.sweb.bestlunch.entities.product;
 
-import com.sweb.bestlunch.entities.Product.ProductCategory;
 import com.sweb.bestlunch.entities.Restaurant;
 import com.sweb.bestlunch.entities.lunch.LunchSet;
 
@@ -18,10 +17,9 @@ public class Product {
     @ManyToOne
     private Restaurant restaurant;
     private Double costPrice;
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="product_category_id")
     private ProductCategory productCategory;
-    @ManyToMany(mappedBy = "products")
-    private List<LunchSet> lunchSets= new ArrayList<>();
 
     public Product(){}
     public Product(String name, String description, Restaurant restaurant, ProductCategory category) {
@@ -33,6 +31,10 @@ public class Product {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

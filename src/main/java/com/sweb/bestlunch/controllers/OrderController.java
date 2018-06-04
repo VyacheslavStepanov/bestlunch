@@ -3,7 +3,6 @@ package com.sweb.bestlunch.controllers;
 import com.sweb.bestlunch.daos.OrderRepository;
 import com.sweb.bestlunch.entities.Restaurant;
 import com.sweb.bestlunch.entities.order.Order;
-import com.sweb.bestlunch.services.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +17,10 @@ import java.util.Map;
 @RequestMapping("/orders")
 public class OrderController {
 
-    private final IOrderService service;
     private final OrderRepository repository;
 
     @Autowired
-    public OrderController(IOrderService service, OrderRepository repository){
-        this.service = service;
+    public OrderController(OrderRepository repository){
         this.repository = repository;
     }
     @GetMapping("/")

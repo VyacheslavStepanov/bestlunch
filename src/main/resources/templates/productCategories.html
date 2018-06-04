@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="/fragments/header :: header"><h2>Static header</h2></div>
+    <br/>
+    <a href="/productCategories/add">Add Product Category</a>
+    <br/>
+    <h1>Product categories</h1>
+    <div>
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Product count</td>
+                <td></td>
+            </tr>
+            <tr th:each="category : ${product_categories}">
+                <td th:text="${category.getId()}">Id</td>
+                <td th:text="${category.getName()}">Name</td>
+                <td th:text="${category.getProducts().size()}">Name</td>
+                <td><a th:href="@{'/productCategories/'+${category.getId()}+'/delete'}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

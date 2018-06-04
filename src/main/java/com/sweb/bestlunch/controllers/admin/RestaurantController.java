@@ -2,7 +2,6 @@ package com.sweb.bestlunch.controllers.admin;
 
 import com.sweb.bestlunch.daos.RestaurantRepository;
 import com.sweb.bestlunch.entities.Restaurant;
-import com.sweb.bestlunch.services.IRestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,33 +14,31 @@ import java.util.*;
 @Controller
 @RequestMapping("/restaurants")
 public class RestaurantController {
-    private static List<Restaurant> restaurants = new ArrayList<>();
-
     private String errorMessage = "Заполните все поля";
-    private IRestaurantService service;
     private RestaurantRepository repository;
 
     @Autowired
-    public RestaurantController(IRestaurantService restaurantService, RestaurantRepository repository){
-        restaurants =  repository.findAll();
+    public RestaurantController(RestaurantRepository repository){
+        this.repository = repository;
     }
 
     @GetMapping("/")
     public ModelAndView getRestaurants(){
+        List<Restaurant> restaurants = repository.findAll();
         Map<String,List<Restaurant>> model = new HashMap<>();
         model.put("restaurants", restaurants);
         return new ModelAndView("restaurants",model);
     }
 
     @GetMapping("/add")
-    public String showAddRestaurantPage(Model model){
+    public String showAddRestaurantForm(Model model){
         Restaurant restaurant = new Restaurant();
-        model.addAttribute("restaurants",restaurant);
-        return "restaurantForm";
+        model.addAttribute("restaurant",restaurant);
+        return "restaurantAddForm";
     }
 
     @PostMapping("/")
-    public String saveOrUpdateRestaurant(Model model, //
+    public String addOrUpdateRestaurant(Model model, //
         @ModelAttribute("restaurant") Restaurant restaurant){
         Long id = restaurant.getId();
         String name = restaurant.getName();
@@ -51,20 +48,40 @@ public class RestaurantController {
         if (name != null && name.length()>0
                 && email != null && email.length()>0
                 && phoneNumber != null && phoneNumber.length()>0) {
-            repository.save(restaurant);
+            try {
+                repository.save(restaurant);
+            } catch (Exception e){
+                //TODO implement exception processing
+            }
+        } else {
+            String errorMessage = "Fill all fields";
+            model.addAttribute("errorMessage",errorMessage);
+            return "restaurantAddForm";
         }
-        model.addAttribute("errorMessage",errorMessage);
-        return "restaurantForm";
+        return "redirect:/restaurants/";
     }
 
-    @GetMapping("/{id}/update")
+    @GetMapping("/{id}/edit")
     public String showUpdateUserForm(@PathVariable("id") Long id, Model model){
         Optional<Restaurant> restaurantOptional = repository.findById(id);
         if (restaurantOptional.isPresent()) {
             Restaurant restaurant = restaurantOptional.get();
             model.addAttribute("restaurant",restaurant);
-            return "restaurantForm";
+            return "restaurantEditForm";
+        } else {
+            //TODO show popup
+            errorMessage = String.format("Restaurant with id %s not found", id);
+            return "redirect:/restaurants/";
         }
-        return "error";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteRestaurant(@PathVariable("id") Long id){
+        Optional<Restaurant> restaurantOptional = repository.findById(id);
+        if (restaurantOptional.isPresent()) {
+            Restaurant restaurant = restaurantOptional.get();
+            repository.delete(restaurant);
+        }
+        return "redirect:/restaurants/";
     }
 }
