@@ -1,6 +1,10 @@
 package com.sweb.bestlunch.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,18 +14,32 @@ import java.util.List;
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "name", nullable = false, unique = true)
+    @NotEmpty(message = "Please provide a name")
     private String name;
+
+    @Column(name = "email", nullable = false, unique = true)
+    @Email(message = "Please provide a valid e-mail")
+    @NotEmpty(message = "Please provide an e-mail")
     private String email;
+
     @Column(name = "phone_number")
+    @NotEmpty(message = "Please provide an phone number")
     private String phoneNumber;
+
+    @CreationTimestamp
+    @Column(name = "created")
     private Date created;
-    private Date modified;
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
-    private List<User> staff = new ArrayList<>();
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "restaurant", optional = false)
+    private User administrator;
 
     public Restaurant() {
     }
@@ -30,6 +48,14 @@ public class Restaurant {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+    }
+
+    public User getAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(User administrator) {
+        this.administrator = administrator;
     }
 
     public void setId(Long id) { this.id = id; }
@@ -68,14 +94,6 @@ public class Restaurant {
 
     public void setCreated(Date created) {
         this.created = created;
-    }
-
-    public Date getModified() {
-        return modified;
-    }
-
-    public void setModified(Date modified) {
-        this.modified = modified;
     }
 
     public Address getAddress() {
