@@ -22,7 +22,7 @@ public class RestaurantController {
         this.repository = repository;
     }
 
-    @GetMapping("/")
+    @GetMapping(value={"","/"})
     public ModelAndView getRestaurants(){
         List<Restaurant> restaurants = repository.findAll();
         Map<String,List<Restaurant>> model = new HashMap<>();
