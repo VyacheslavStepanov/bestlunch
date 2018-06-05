@@ -28,7 +28,7 @@ public class ProductController {
         this.restaurantRepository = restaurantRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping(value={"","/"})
     public ModelAndView showAllProducts() {
         Optional<Restaurant> restaurantOptional = restaurantRepository.findById(1L);
         List<Product> products;

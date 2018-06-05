@@ -23,7 +23,7 @@ public class ProductCategoryController {
         this.repository = repository;
     }
 
-    @GetMapping("/")
+    @GetMapping(value={"","/"})
     public ModelAndView showProductCategoryList(){
         List<ProductCategory> categories = repository.findAll();
         Map<String,List<ProductCategory>> model = new HashMap<>();
